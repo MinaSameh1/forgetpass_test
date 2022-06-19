@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import './login.css'
-import image from './../../images/simcc.png'
-import { login } from './loginAPI'
+import { BiHide, BiShow } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
+import image from './../../images/simcc.png'
+import './login.css'
+import { login } from './loginAPI'
 import { Iuserdata } from './types/userdata.type'
 
 const LoginPage: React.FC = () => {
   const [userdata, setUserdata] = useState<Iuserdata>(null)
+  const [show, setShow] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -14,7 +16,7 @@ const LoginPage: React.FC = () => {
     const { username, pass } = e.currentTarget
     const res = await login(username.value, pass.value)
     if (res) {
-      setUserdata(res)
+      setUserdata(res || null)
       // login
       console.log('Success in login')
       return
@@ -52,9 +54,22 @@ const LoginPage: React.FC = () => {
             className='login-input'
             placeholder='password'
             name='pass'
-            type='password'
+            type={show ? 'text' : 'password'}
             required
           />
+          {show ? (
+            <BiShow
+              className='login-show'
+              title='Show Password'
+              onClick={() => setShow(!show)}
+            />
+          ) : (
+            <BiHide
+              className='login-show'
+              title='Hide password'
+              onClick={() => setShow(!show)}
+            />
+          )}
           <br />
           {error && (
             <span className='login-error'>Invalid username or password</span>
