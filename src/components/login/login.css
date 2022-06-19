@@ -1,5 +1,33 @@
+.login-div {
+  display: flex;
+}
+.login-div > * {
+  flex-basis: 100%;
+}
+
+.login-left {
+  position:relative;
+  height: 100%;
+}
+
+.login-right {
+  display: grid;
+}
+
+.login-img {
+  width: 50%;
+  position: center;
+  height: 100%;
+}
+
+.login-image-text {
+  bottom: 0;
+  position:fixed;
+}
+
 .login-form {
-  grid-area: right;
+  padding: 25px;
+
 }
 
 .login-error {
@@ -11,13 +39,21 @@
   color: #706fa7;
   font-size: 10px;
   grid-area: right;
+  right:0;
 }
 
-.login-textbox:focus {
-  border: solid #706fa7 10%;
-  /* border-color: #706fa7; */
+.login-input:focus {
+  /* border: solid #706fa7 10%; */
+  outline: 1px solid #706fa7 ;
 }
 
-.login-div {
-  display: grid
+.login-title {
+  font:oblique;
+  text-underline-offset: 20px;
+  text-decoration:underline;
+  text-decoration-color: #706fa7;
+}
+
+.login-right span {
+  font:oblique;
 }
