@@ -15,7 +15,8 @@
 }
 
 .login-left {
-  background: linear-gradient(to bottom,  #ebedf9 100%, #fff 0%);
+  height: 100%;
+  background: linear-gradient(to bottom, #ebedf9 100%, #fff 0%);
   position: relative;
   display: block;
   text-align: center;
