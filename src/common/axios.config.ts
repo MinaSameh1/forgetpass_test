@@ -1,8 +1,8 @@
 import Axios from 'axios'
 import { URL } from '.'
 
-const axios = Axios.create({
+const axiosInstance = Axios.create({
   baseURL: URL
 })
 
-export default axios
+export default axiosInstance
