@@ -3,6 +3,13 @@
   height: 100vh;
 }
 
+@media screen and (max-width: 768px) {
+  .login-right {
+    flex-shrink: 0;
+    font-size: 0.5em;
+  }
+}
+
 .login-div > * {
   flex-basis: 100%;
 }
@@ -38,7 +45,9 @@
 
 .login-image-text {
   bottom: 0;
-  left: 10%;
+  left: 20%;
+  font-size: 2em;
+  color: gray;
   position: fixed;
 }
 
@@ -89,12 +98,23 @@
   background-color: #706fa7;
   color: #fff;
   height: 2.5em;
-  font-size: 1em;
+  font-size: 0.7em;
   border-radius: 5px;
   border: none;
+}
+
+.login-pass {
+  position: relative;
+  display: block;
+  margin-left: auto ;
+  margin-right: auto ;
 }
 
 .login-show {
   cursor: pointer;
   position: absolute;
+  height: 100%;
+  float: right;
+  top: 0;
+  right: 0;
 }

@@ -7,7 +7,7 @@ import { login } from './loginAPI'
 import { Iuserdata } from './types/userdata.type'
 
 const LoginPage: React.FC = () => {
-  const [userdata, setUserdata] = useState<Iuserdata>(null)
+  const [userdata, setUserdata] = useState<Iuserdata>()
   const [show, setShow] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
 
@@ -16,7 +16,7 @@ const LoginPage: React.FC = () => {
     const { username, pass } = e.currentTarget
     const res = await login(username.value, pass.value)
     if (res) {
-      setUserdata(res || null)
+      setUserdata(res)
       // login
       console.log('Success in login')
       return
@@ -50,27 +50,29 @@ const LoginPage: React.FC = () => {
           <br />
           <br />
           <span className='login-text'>Password</span> <br />
-          <input
-            className='login-input'
-            placeholder='password'
-            name='pass'
-            type={show ? 'text' : 'password'}
-            required
-          />
-          {show ? (
-            <BiShow
-              className='login-show'
-              title='Show Password'
-              onClick={() => setShow(!show)}
-            />
-          ) : (
-            <BiHide
-              className='login-show'
-              title='Hide password'
-              onClick={() => setShow(!show)}
-            />
-          )}
-          <br />
+          <div className='login-pass'>
+            <input
+              className='login-input'
+              placeholder='password'
+              name='pass'
+              type={show ? 'text' : 'password'}
+              required
+              />
+            {show ? (
+                <BiHide
+                  className='login-show'
+                  title='Hide password'
+                  onClick={() => setShow(!show)}
+                  />
+            ) : (
+              <BiShow
+                className='login-show'
+                title='Show Password'
+                onClick={() => setShow(!show)}
+                />
+              )}
+            <br />
+          </div>
           {error && (
             <span className='login-error'>Invalid username or password</span>
           )}
