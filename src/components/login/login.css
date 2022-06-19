@@ -1,33 +1,49 @@
 .login-div {
   display: flex;
+  height: 100vh;
 }
+
 .login-div > * {
   flex-basis: 100%;
 }
 
 .login-left {
-  position:relative;
-  height: 100%;
+  background: linear-gradient(to bottom,  #ebedf9 100%, #fff 0%);
+  position: relative;
+  display: block;
+  text-align: center;
 }
 
 .login-right {
+  overflow: hidden;
   display: grid;
 }
 
-.login-img {
+.login-circle-img {
+  margin-top: 20%;
+  margin-left: 20%;
   width: 50%;
-  position: center;
+  border: 1px solid #fff;
+  background: #fff;
+  text-align: center;
+  border-radius: 50%;
+  height:50%;
+}
+
+.login-img {
+  object-fit:contain;
+  width: 100%;
   height: 100%;
 }
 
 .login-image-text {
   bottom: 0;
-  position:fixed;
+  left: 10%;
+  position: fixed;
 }
 
 .login-form {
   padding: 25px;
-
 }
 
 .login-error {
@@ -39,21 +55,30 @@
   color: #706fa7;
   font-size: 10px;
   grid-area: right;
-  right:0;
+  right: 0;
+}
+
+.login-input {
+  padding: 1%;
+  width: 100%;
+  border-radius: 4px;
 }
 
 .login-input:focus {
   /* border: solid #706fa7 10%; */
-  outline: 1px solid #706fa7 ;
+  outline: 1px solid #706fa7;
+  border-radius: 5px;
 }
 
 .login-title {
-  font:oblique;
+  font: oblique;
+  padding: 10px;
+  padding-bottom: 30px;
   text-underline-offset: 20px;
-  text-decoration:underline;
+  text-decoration: underline;
   text-decoration-color: #706fa7;
 }
 
 .login-right span {
-  font:oblique;
+  font: oblique;
 }

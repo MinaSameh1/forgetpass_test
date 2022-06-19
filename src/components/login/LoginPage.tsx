@@ -26,7 +26,9 @@ const LoginPage: React.FC = () => {
     <div className='login-div'>
       {/* Image */}
       <div className='login-left'>
-        <img className='login-img' src={image} />
+        <div className='login-circle-img'>
+          <img className='login-img' src={image} alt='Login image' />
+        </div>
         <span className='login-image-text'>company name</span>
       </div>
 
@@ -42,7 +44,7 @@ const LoginPage: React.FC = () => {
             type='text'
             placeholder='username'
             required
-          />{' '}
+          />
           <br />
           <br />
           <span className='login-text'>Password</span> <br />
