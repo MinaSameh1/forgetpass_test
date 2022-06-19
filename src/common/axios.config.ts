@@ -1,4 +1,8 @@
-import axios from 'axios'
+import Axios from 'axios'
 import { URL } from '.'
 
-axios.defaults.baseURL = URL
+const axios = Axios.create({
+  baseURL: URL
+})
+
+export default axios

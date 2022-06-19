@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../common/axios.config'
 import { Iuserdata } from './types/userdata.type'
 
 export async function login(
@@ -7,7 +7,7 @@ export async function login(
 ): Promise<boolean | Iuserdata> {
   // TODO: Change this to use actual API!
   try {
-  const res = await axios.get(`http://localhost:8000/users?username=${username}&pass=${pass}`)
+  const res = await axios.get(`/users?username=${username}&pass=${pass}`)
   if (res.data[0]) {
     // Maybe use react-cookies ? for now use the document api.
     if (res.data[0].accessToken) {
