@@ -1,11 +1,12 @@
-import './topbar.css'
-import logo from './../../images/simcc.png'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { IoNotificationsOutline } from 'react-icons/io5'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { AiFillHome, AiOutlinePoweroff } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
-import { useState } from 'react'
 import ClickAwayListener from 'react-click-away-listener'
+import './topbar.css'
+import logo from './../../images/simcc.png'
 
 interface props {
   img: string
@@ -15,6 +16,7 @@ interface props {
 
 export function TopBar({ img, name, role }: props) {
   const [showMenu, setShowMenu] = useState<boolean>(false)
+  const navigate = useNavigate()
 
   return (
     <div className='Topbar'>
@@ -44,13 +46,28 @@ export function TopBar({ img, name, role }: props) {
                     <span className='topbar-role'>{role}</span>
                   </li>
                   <li>
-                    <AiFillHome color='#706FA7' /> Home
+                    <a
+                      className='topbar-button'
+                      onClick={() => navigate('/', { replace: true })}
+                    >
+                      <AiFillHome color='#706FA7' /> Home
+                    </a>
                   </li>
                   <li>
-                    <CgProfile color='#706FA7' /> Profile
+                    <a
+                      className='topbar-button'
+                      onClick={() => navigate('/profile', { replace: true })}
+                    >
+                      <CgProfile color='#706FA7' /> Profile
+                    </a>
                   </li>
                   <li>
-                    <AiOutlinePoweroff color='#706FA7' /> Logout
+                    <a
+                      className='topbar-button'
+                      onClick={() => navigate('/logout', { replace: true })}
+                    >
+                      <AiOutlinePoweroff color='#706FA7' /> Logout
+                    </a>
                   </li>
                 </div>
               </ClickAwayListener>
