@@ -17,7 +17,7 @@ const LoginPage: React.FC = () => {
     if (res) {
       // login
       console.log('Success in login')
-      navigate('/admindash', { replace: true, state: {data: res } })
+      navigate('/admindash', { replace: true, state: { userdata: res } })
       return
     }
     setError(true)

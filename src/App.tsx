@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { RequireLogin } from './components/login'
-import AdminDashboard from './pages/AdminDashboard'
+import { AdminDashboard } from './pages/admindash'
 import ForgotPass from './components/ForgotPass/forgotpass'
 import LoginPage from './components/login/LoginPage'
 import { Logout } from './components/logout/logout'
