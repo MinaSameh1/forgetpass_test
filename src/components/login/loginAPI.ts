@@ -1,5 +1,5 @@
 import axiosInstance from '../../common/axios.config'
-import { Iuserdata } from './types/userdata.type'
+import { Iuserdata } from './../../common/types'
 
 export async function login(
   username: string,
@@ -10,15 +10,15 @@ export async function login(
     const res = await axiosInstance.get(
       `/users?username=${username}&pass=${pass}`
     )
-    // TODO: Deconstruct the res.data, its used like 4 times
-    if (res.data[0]) {
+    const userdata = res.data[0]
+    if (userdata) {
       // Maybe use react-cookies ? for now use the document api.
-      if (res.data[0].accessToken)
+      if (userdata.accessToken)
         // since this api doesn't return an actual token
-        document.cookie = `Bearer=${res.data[0].accessToken};`
+        document.cookie = `Bearer=${userdata.accessToken};`
       else document.cookie = 'Bearer=Token;'
       // The token should be decoded here to get data
-      return res.data[0]
+      return userdata
     }
     return null
   } catch (err) {

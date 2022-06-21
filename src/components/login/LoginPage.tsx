@@ -4,10 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import image from './../../images/simcc.png'
 import './login.css'
 import { login } from './loginAPI'
-import { Iuserdata } from './types/userdata.type'
 
 const LoginPage: React.FC = () => {
-  const [userdata, setUserdata] = useState<Iuserdata>()
   const navigate = useNavigate()
   const [show, setShow] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
@@ -17,10 +15,9 @@ const LoginPage: React.FC = () => {
     const { username, pass } = e.currentTarget
     const res = await login(username.value, pass.value)
     if (res) {
-      setUserdata(res)
       // login
       console.log('Success in login')
-      navigate('/admindash', { replace: true })
+      navigate('/admindash', { replace: true, state: {data: res } })
       return
     }
     setError(true)
@@ -38,7 +35,7 @@ const LoginPage: React.FC = () => {
 
       {/* Form */}
       <div className='login-right'>
-        <form className='login-form' onSubmit={(event) => handleSubmit(event)}>
+        <form className='login-form' onSubmit={event => handleSubmit(event)}>
           <h1 className='login-title'>LOGIN</h1>
           <span className='login-text'>Username</span>
           <br />
@@ -59,20 +56,20 @@ const LoginPage: React.FC = () => {
               name='pass'
               type={show ? 'text' : 'password'}
               required
-              />
+            />
             {show ? (
-                <BiHide
-                  className='login-show'
-                  title='Hide password'
-                  onClick={() => setShow(!show)}
-                  />
+              <BiHide
+                className='login-show'
+                title='Hide password'
+                onClick={() => setShow(!show)}
+              />
             ) : (
               <BiShow
                 className='login-show'
                 title='Show Password'
                 onClick={() => setShow(!show)}
-                />
-              )}
+              />
+            )}
             <br />
           </div>
           {error && (

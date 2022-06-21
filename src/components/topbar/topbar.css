@@ -1,0 +1,109 @@
+.Topbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: calc(0.5em + 20px);
+  background-color: white;
+  padding-bottom: 5px;
+  z-index: 999;
+}
+
+.topbar-elements {
+  height: 100%;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-logo {
+  background-repeat: no-repeat;
+  width: 35px;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.topbar-right {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 10px 15px 00px 20px;
+  /* background: var(--unnamed-color-706fa7) 0% 0% no-repeat padding-box; */
+  background: #706fa7 0% 0% no-repeat padding-box;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+}
+
+.topbar-icon {
+  position: relative;
+  width: 25px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.topbar-badge {
+  /* Position */
+  top: -18px;
+  right: -4px;
+  position: absolute;
+  text-align: center;
+  width: 15px;
+  height: 100%;
+
+  /* UI */
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25%;
+  font: normal normal normal 17px/28px Roboto;
+  letter-spacing: 0.01px;
+  color: #ffffff;
+  background: #a9abd3 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.topbar-noti {
+  height: 100%;
+  width: 100%;
+}
+
+.topbar-dropdown {
+  height: 100%;
+  width: 30px;
+}
+
+.topbar-pfp {
+  cursor: pointer;
+  margin-right: 5px;
+  width: 60px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.topbar-menu {
+  text-align: center;
+  position: absolute;
+  right: 20px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  margin-right: 20px;
+  box-shadow: 0px 0px 10px #00000029;
+  border-radius: 10px;
+  opacity: 1;
+  font: normal normal normal 16px/22px Nunito;
+}
+
+.topbar-role {
+  color: gray;
+  right: 0px;
+}
+
+.topbar-name {
+  left: 0px;
+}
+
+.topbar-menu > li {
+  padding: 5px;
+  margin: 0;
+  list-style-type: none;
+}

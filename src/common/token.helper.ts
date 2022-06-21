@@ -10,3 +10,7 @@ export function setToken(value: string) {
 export function getToken(): string | null {
   return document.cookie ? document.cookie : null;
 }
+
+export function logout() {
+  document.cookie = ""
+}

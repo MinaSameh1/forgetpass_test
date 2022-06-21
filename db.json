@@ -2,7 +2,9 @@
   "users": [
     {
       "username": "admin",
-      "pass": "1234"
+      "pass": "1234",
+      "role": "SIMCC Admin",
+      "img": "https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png"
     }
   ]
 }
