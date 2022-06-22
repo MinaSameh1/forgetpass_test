@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import { isLoggedIn } from "../../common";
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../common/hooks'
 
-
-// TODO: Refactor this any.
-export function RequireLogin({children}: any) {
+export function RequireLogin({ children }: { children: JSX.Element }) {
   const navigate = useNavigate()
+  const { auth } = useAuth()
 
-  return isLoggedIn() === true ? children : navigate('/', { replace: true })
+  return auth?.user ? children
+    : navigate('/login', { replace: true })
 }

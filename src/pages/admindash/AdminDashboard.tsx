@@ -20,7 +20,9 @@ export function AdminDashboard() {
         navigate('/login', { replace: true })
       }, 100
     )
-    return
+    return (<>
+      <h1>Redirecting...</h1>
+    </>)
   }
 
   return (
