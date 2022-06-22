@@ -1,23 +1,23 @@
-import axiosInstance from '../../common/axios.config'
+import axios from 'axios'
+import { setToken, setTokenValue } from '../../common'
 import { Iuserdata } from './../../common/types'
 
 export async function login(
   username: string,
   pass: string
 ): Promise<null | Iuserdata> {
-  // TODO: Change this to use actual API!
   try {
-    const res = await axiosInstance.get(
-      `/users?username=${username}&pass=${pass}`
+    const res = await axios.post(
+      'https://loginapi-quick.herokuapp.com/api/login',
+      { username, password: pass }
     )
-    const userdata = res.data[0]
+    const userdata = res.data
     if (userdata) {
       // Maybe use react-cookies ? for now use the document api.
       if (userdata.accessToken)
         // since this api doesn't return an actual token
-        document.cookie = `Bearer=${userdata.accessToken};`
-      else document.cookie = 'Bearer=Token;'
-      // The token should be decoded here to get data
+      setToken(userdata.accessToken, userdata.refreshToken)
+      else setTokenValue('noToken')
       return userdata
     }
     return null
