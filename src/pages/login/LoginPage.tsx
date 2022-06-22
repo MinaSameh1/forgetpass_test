@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import LoginForm from '../../components/login/LoginForm'
 import logo from './../../images/logo.png'
 import full from './../../images/login_full.jpg'
@@ -5,6 +7,7 @@ import image from './../../images/minilogo.png'
 import './login_page.css'
 
 export function LoginPage() {
+  const [forgot, setForgot] = useState<boolean>(false)
   const amount = 10
 
   const getLogos = (): JSX.Element[] => {
@@ -36,7 +39,7 @@ export function LoginPage() {
 
         {/* Form */}
         <div className='login-right'>
-          <LoginForm />
+          <Outlet />
         </div>
       </div>
     </>

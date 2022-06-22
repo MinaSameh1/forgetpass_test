@@ -5,13 +5,16 @@ import { AdminDashboard } from './pages/admindash'
 import ForgotPass from './components/ForgotPass/forgotpass'
 import { Logout } from './components/logout/logout'
 import LoginPage from './pages/login/LoginPage'
+import LoginForm from './components/login/LoginForm'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LoginPage />} />
-        <Route path='/forgotpass' element={<ForgotPass />} />
+        <Route path='' element={<LoginPage />} >
+          <Route path='/login' element={<LoginForm />} />
+          <Route path='/forgotpass' element={<ForgotPass />} />
+        </Route>
         <Route
           path='/setup'
           element={
