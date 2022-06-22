@@ -24,7 +24,7 @@ const ForgotPass: React.FC = () => {
   return (
     <>
       <form className='login-form' onSubmit={(event) => handleSubmit(event)}>
-        <span className='forgetpass-title'>Reset Password</span>
+        <p className='forgetpass-title'>Reset Password</p>
         <div className='forgetpass-underscore'></div>
         <span className='login-text'>New Password</span>
         <br />
@@ -83,7 +83,7 @@ const ForgotPass: React.FC = () => {
         </Link>
         <br />
         <br />
-        <button type='submit' className='login_form-button'>
+        <button type='submit' className='forgetpass-button'>
           Change Password
         </button>
       </form>
