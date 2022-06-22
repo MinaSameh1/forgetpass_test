@@ -32,7 +32,7 @@ const LoginForm: React.FC = () => {
           className='login-input'
           name='username'
           type='text'
-          placeholder='username'
+          placeholder='Your Username'
           required
         />
         <br />
@@ -41,7 +41,7 @@ const LoginForm: React.FC = () => {
         <div className='login_form-pass'>
           <input
             className='login-input'
-            placeholder='password'
+            placeholder='Your Password'
             name='pass'
             type={show ? 'text' : 'password'}
             required

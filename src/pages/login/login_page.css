@@ -22,10 +22,11 @@
 }
 
 .login-circle-img {
+  top: 300px;
+  left: 302px;
 }
 
 .login-img {
-  position: sticky;
   top: 300px;
   left: 302px;
   width: 480px;
@@ -41,10 +42,12 @@
 }
 
 .login_page-logos > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #ffffff 0% 0% no-repeat padding-box;
   border-radius: 50%;
   position: absolute;
-
   box-shadow: 8px 8px 3px #c3c5e8;
 }
 
@@ -72,41 +75,40 @@ left: 856px;
 width: 185px;
 height: 185px;
 }
-.login_page-logo-4 {
-  /* Layout Properties */
 
+.login_page-logo-4 {
 top: 611px;
 left: 835px;
 width: 158px;
 height: 158px;
 }
 .login_page-logo-5 {
-  top: 81px;
-  left: 431px;
-  width: 191px;
-  height: 191px;
+top: 757px;
+left: 615px;
+width: 165px;
+height: 165px;
 }
 .login_page-logo-6 {
-  top: 81px;
-  left: 431px;
-  width: 191px;
-  height: 191px;
+  top: 842px;
+left: 860px;
+width: 196px;
+height: 196px;
 }
 .login_page-logo-7 {
-  top: 81px;
-  left: 431px;
-  width: 191px;
-  height: 191px;
+  top: 302px;
+left: 149px;
+width: 153px;
+height: 150px;
 }
 .login_page-logo-8 {
-  top: 81px;
-  left: 431px;
-  width: 191px;
-  height: 191px;
+  top: 529px;
+left: 73px;
+width: 165px;
+height: 165px;
 }
 .login_page-logo-9 {
-  top: 81px;
-  left: 431px;
-  width: 191px;
-  height: 191px;
+  top: 843px;
+left: 49px;
+width: 184px;
+height: 184px;
 }
