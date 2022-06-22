@@ -10,16 +10,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='' element={<LoginPage />} >
+        <Route path='' element={<LoginPage />}>
+          <Route path='/' element={<LoginForm />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/forgotpass' element={<ForgotPass />} />
         </Route>
-        <Route
-          path='/setup'
-          element={
-              <AdminDashboard />
-          }
-        />
+        <Route path='/setup' element={<AdminDashboard />} />
         <Route path='/logout' element={<Logout />} />
         <Route
           path='*'
