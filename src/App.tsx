@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { AdminDashboard } from './pages/admindash'
-import ForgotPass from './components/ForgotPass/forgotpass'
+import { ResetPass } from './components/Resetpass'
 import { Logout } from './components/logout/logout'
 import LoginPage from './pages/login/LoginPage'
 import LoginForm from './components/login/LoginForm'
+import ForgotPass from './components/forgetpass/forgetpass'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='' element={<LoginPage />}>
           <Route path='/' element={<LoginForm />} />
           <Route path='/login' element={<LoginForm />} />
+          <Route path='/resetpass' element={<ResetPass />} />
           <Route path='/forgotpass' element={<ForgotPass />} />
         </Route>
         <Route path='/setup' element={<AdminDashboard />} />

@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
 import { updatePassAPI } from './../../api'
-import './forgotpass.css'
+import './resetpass.css'
 
-const ForgotPass: React.FC = () => {
+export const ResetPass: React.FC = () => {
   const navigate = useNavigate()
   const [showPass, setShowPass] = useState<boolean>(false)
   const [showConfPass, setShowConfPass] = useState<boolean>(false)
@@ -24,8 +24,8 @@ const ForgotPass: React.FC = () => {
   return (
     <>
       <form className='login-form' onSubmit={(event) => handleSubmit(event)}>
-        <p className='forgetpass-title'>Reset Password</p>
-        <div className='forgetpass-underscore'></div>
+        <p className='resetpass-title'>Reset Password</p>
+        <div className='resetpass-underscore'></div>
         <span className='login-text'>New Password</span>
         <br />
         <div className='login_form-pass'>
@@ -78,12 +78,12 @@ const ForgotPass: React.FC = () => {
         {error && (
           <span className='login-error'>Your Passwords don't match</span>
         )}
-        <Link className='forgetpass-link' to='/login'>
+        <Link className='resetpass-link' to='/login'>
           Login
         </Link>
         <br />
         <br />
-        <button type='submit' className='forgetpass-button'>
+        <button type='submit' className='resetpass-button'>
           Change Password
         </button>
       </form>
@@ -91,4 +91,4 @@ const ForgotPass: React.FC = () => {
   )
 }
 
-export default ForgotPass
+export default ResetPass
