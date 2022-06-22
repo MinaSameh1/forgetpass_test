@@ -2,16 +2,15 @@
   position: sticky;
   top: 0;
   width: 100%;
-  height: calc(0.5em + 20px);
+  height: calc(0.5em + 40px);
   background-color: white;
-  padding-bottom: 5px;
+  padding-bottom: 9px;
   z-index: 999;
 }
 
 .topbar-elements {
   height: 100%;
-  margin: 5px 0px;
-  margin-top: 12px;
+  margin-top: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +20,10 @@
   background-repeat: no-repeat;
   padding: 5px;
   margin-left: 10px;
-  width: 35px;
+  /* width: 35px; */
+  width: 69px;
+  height: 69px;
+
   cursor: pointer;
   opacity: 1;
 }
@@ -29,7 +31,7 @@
 .topbar-right {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
-  padding: 10px 15px 00px 20px;
+  padding: 3px 15px 00px 30px;
   /* background: var(--unnamed-color-706fa7) 0% 0% no-repeat padding-box; */
   background: #706fa7 0% 0% no-repeat padding-box;
   display: flex;
@@ -39,26 +41,28 @@
 
 .topbar-icon {
   position: relative;
-  width: 25px;
+  /* width: 25px; */
+  padding-right: 20px;
+  width: 30px;
+  height: 27px;
+  color: #FFFFFF;
   margin-right: 12px;
   cursor: pointer;
 }
 
 .topbar-badge {
   /* Position */
-  top: -18px;
-  right: -4px;
+  top: -60%;
+  right: 12%;
   position: absolute;
   text-align: center;
-  width: 15px;
-  height: 100%;
-
+  width: 23px;
+  height: 27px;
   /* UI */
-  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25%;
+  border-radius: 35%;
   font: normal normal normal 17px/28px Roboto;
   letter-spacing: 0.01px;
   color: #ffffff;
@@ -78,9 +82,9 @@
 
 .topbar-pfp {
   cursor: pointer;
-  margin-right: 5px;
-  width: 60px;
-  height: 40px;
+  margin-right: 10px;
+  width: 69px;
+  height: 69px;
   border-radius: 50%;
 }
 
@@ -105,13 +109,14 @@
   left: 0px;
 }
 
-.topbar-menu > li {
+.topbar-menu>li {
   padding: 5px;
   margin: 0;
   list-style-type: none;
 }
 
-.topbar-button, topbar-button:focus {
+.topbar-button,
+topbar-button:focus {
   outline: none;
   background: transparent;
   border: 1px solid transparent;

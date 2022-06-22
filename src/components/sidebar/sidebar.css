@@ -1,13 +1,15 @@
 .sidebar {
   flex: 0;
   height: 100vh;
+  width: 72px;
   background-color: #fff;
   position: sticky;
   top: 0;
 }
 
 .sidebarWrapper {
-  color: #555;
+  color: #6C7383;
+  fill: #6C7383;
 }
 
 .sidebarMenu {
@@ -21,6 +23,7 @@
 
 .sidebarList {
   list-style: none;
+  width: 100%;
   padding: 5px;
 }
 
@@ -29,11 +32,15 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center  ;
 }
 
 .sidebarListItem.active,
 .sidebarListItem:hover {
   background-color: #706fa7;
+  stroke: #706fa7;
+  fill: #fff;
   color: #fff
 }
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { data } from './types'
 import { countBy } from 'lodash'
-import { MdAccessTime } from 'react-icons/md'
+import { MdOutlineAvTimer } from 'react-icons/md'
 import './tabledash.css'
 import { FaSchool } from 'react-icons/fa'
 import { getData } from '../../api'
@@ -25,7 +25,7 @@ export const TableDash = () => {
       <span className='table-title'>Schools</span>
       <div className='table-widgets'>
         <div className='table-widget'>
-          <MdAccessTime className='table-widget-icon' />
+          <MdOutlineAvTimer className='table-widget-icon' />
           <span className='table-widget-number'>
             {countBy(data, (item: data) => item.status == 0).true}
           </span>

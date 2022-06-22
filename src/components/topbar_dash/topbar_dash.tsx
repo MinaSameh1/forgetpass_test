@@ -1,7 +1,7 @@
 import './topbar_dash.css'
-import logo from './../../images/settings.png'
 import { useLocation } from 'react-router-dom'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
+import { FaTools } from 'react-icons/fa'
 
 export function TopBarDash() {
   const location = useLocation()
@@ -9,7 +9,7 @@ export function TopBarDash() {
     <div className='topbar-dash'>
       <div className='topbar-elements'>
         <a href='/'>
-          <img className='topbar_dash-logo' src={logo} />
+          <FaTools className='topbar_dash-logo' />
         </a>
         {/* TODO: Make it dynamic */}
         <span className='topbar_dash-title'>

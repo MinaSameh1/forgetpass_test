@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { IoNotificationsOutline } from 'react-icons/io5'
+import { IoMdNotificationsOutline } from 'react-icons/io'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import { AiFillHome, AiOutlinePoweroff } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
@@ -29,7 +29,7 @@ export function TopBar({ img, name, role }: props) {
         <div className='topbar-right'>
           <div className='topbar-icon'>
             <span className='topbar-badge'>2</span>
-            <IoNotificationsOutline className='topbar-noti' />
+            <IoMdNotificationsOutline className='topbar-noti' />
           </div>
           <div>
             <img

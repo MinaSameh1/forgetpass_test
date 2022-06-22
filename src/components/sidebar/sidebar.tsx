@@ -7,7 +7,7 @@ import {
   MdPeople,
   MdSettings,
 } from 'react-icons/md'
-import { FaGraduationCap, FaRegNewspaper, FaDatabase } from 'react-icons/fa'
+import { FaGraduationCap, FaRegNewspaper, FaDatabase, FaTools } from 'react-icons/fa'
 import './sidebar.css'
 
 export function Sidebar() {
@@ -23,7 +23,7 @@ export function Sidebar() {
             </Link>
             <Link to='/setup' className='link'>
               <li className='sidebarListItem active'>
-                <MdAdminPanelSettings className='sidebarIcon' />
+                <FaTools className='sidebarIcon' />
               </li>
             </Link>
             <li className='sidebarListItem'>

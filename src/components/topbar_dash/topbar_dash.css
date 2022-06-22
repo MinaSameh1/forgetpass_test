@@ -5,7 +5,7 @@
   justify-content: left;
   top: 0;
   width: 100%;
-  height: calc(0.6em + 20px);
+  height: 60px;
   /* background-color: #eef0fe; */
   background: #eef0fe 0% 0% no-repeat padding-box;
   padding: 5px 0px;
@@ -16,13 +16,18 @@
 .topbar_dash-logo {
   padding: 5px;
   margin-left: 10px;
-  width: 35px;
+  width: 22px;
+  height: 22px;
+  /* UI Properties */
+  color: #706FA7;
   cursor: pointer;
-  opacity: 1;
 }
 
 .topbar_dash-arrow {
   color: #cdccd1;
+  width: 11px;
+height: 18px;
+
   padding: 0px 10px;
 }
 
