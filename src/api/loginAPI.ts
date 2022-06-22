@@ -1,12 +1,12 @@
 import { Iuserdata, tokens } from './../common/types'
-import { axiosUser } from "./axios.config";
+import { axiosOnline } from "./axios.config";
 
 export async function login(
   username: string,
   pass: string
 ): Promise<null | Iuserdata & tokens> {
   try {
-    const res = await axiosUser.post(
+    const res = await axiosOnline.post(
       'api/login',
       { username, password: pass }
     )
@@ -22,7 +22,7 @@ export async function login(
 }
 
 export async function updatePassAPI(pass: string) {
-  axiosUser.post('/api/user', {
+  axiosOnline.post('/api/user', {
     password: pass
   }, {
     headers: {

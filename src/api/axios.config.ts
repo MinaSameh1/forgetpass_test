@@ -5,7 +5,7 @@ const axiosPublic = Axios.create({
   baseURL: URL
 })
 
-export const axiosUser = Axios.create({
+export const axiosOnline = Axios.create({
   baseURL: onlineURL,
   headers: { 'Content-Type': 'application/json' },
 })
