@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
+import { updatePassAPI } from './forgetpassAPI'
 import './forgotpass.css'
 
 const ForgotPass: React.FC = () => {
@@ -12,9 +13,11 @@ const ForgotPass: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const { pass, confPass } = e.currentTarget
-    if(pass!=confPass) { setError(true)}
-    else {
-      navigate('/login', {replace: true})
+    if (pass != confPass) {
+      setError(true)
+    } else {
+      updatePassAPI(pass)
+      navigate('/login', { replace: true })
     }
   }
 
@@ -26,13 +29,13 @@ const ForgotPass: React.FC = () => {
         <span className='login-text'>New Password</span>
         <br />
         <div className='login_form-pass'>
-        <input
-          className='login-input'
-          name='pass'
-          type={showPass ? 'text' : 'password'}
-          placeholder='Your New password'
-          required
-        />
+          <input
+            className='login-input'
+            name='pass'
+            type={showPass ? 'text' : 'password'}
+            placeholder='Your New password'
+            required
+          />
           {showPass ? (
             <BiShow
               className='login-show'
