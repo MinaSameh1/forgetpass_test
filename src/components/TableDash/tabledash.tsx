@@ -37,6 +37,9 @@ export const TableDash = () => {
           <span className='table-widget-text'>Total Schools</span>
         </div>
       </div>
+      <div className='table-buttons'>
+
+      </div>
 
       {data.map((item) => (
         <div key={item.id}>

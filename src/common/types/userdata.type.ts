@@ -2,5 +2,6 @@ export interface Iuserdata {
   username: string
   pass: string
   role: string
-  img: string
+  isAdmin: boolean
+  img: string | null
 }

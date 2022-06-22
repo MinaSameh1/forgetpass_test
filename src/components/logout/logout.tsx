@@ -1,11 +1,14 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { logout } from '../../common'
+import logoutAPI from './logoutAPI'
 
 export function Logout() {
   const navigate = useNavigate()
-  logout()
 
-  navigate('/', { replace: true })
+  useEffect(() => {
+    logoutAPI()
+    navigate('/', { replace: true })
+  }, [])
 
   return (
     <main>

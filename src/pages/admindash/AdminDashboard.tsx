@@ -4,6 +4,7 @@ import { TopBarDash } from '../../components/topbar_dash'
 import { Iuserdata } from './../../common/types'
 import { TableDash } from './../../components/TableDash'
 import { TopBar } from './../../components/topbar'
+import img from './../../images/Ellipse_1@2x.png'
 import './admin.css'
 
 type locationProps = { userdata: Iuserdata }
@@ -14,7 +15,7 @@ export function AdminDashboard() {
 
   return (
     <>
-      <TopBar img={userdata.img} name={userdata.username} role={userdata.role} />
+      <TopBar img={userdata.img || img} name={userdata.username} role={userdata.role} />
       <TopBarDash />
       <div className='dash-main'>
         <Sidebar />

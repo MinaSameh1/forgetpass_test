@@ -1,0 +1,112 @@
+.login-div {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .login-right {
+    flex-shrink: 0;
+    font-size: 0.5em;
+  }
+}
+
+.login-div > * {
+  flex-basis: 100%;
+}
+
+.login-left {
+  height: 100vh;
+  background: transparent linear-gradient(180deg, #f4f5fc 0%, #dee2f5 100%) 0%
+    0% no-repeat padding-box;
+}
+
+.login-circle-img {
+}
+
+.login-img {
+  position: sticky;
+  top: 300px;
+  left: 302px;
+  width: 480px;
+  height: 480px;
+}
+
+.login-image-text {
+  bottom: 0;
+  left: 15%;
+  font: normal normal bold 20px/27px Nunito;
+  color: gray;
+  position: fixed;
+}
+
+.login_page-logos > div {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border-radius: 50%;
+  position: absolute;
+
+  box-shadow: 8px 8px 3px #c3c5e8;
+}
+
+.login_page-logo-0 {
+  top: 47px;
+  left: 99px;
+  width: 167px;
+  height: 167px;
+}
+.login_page-logo-1 {
+  top: 81px;
+  left: 431px;
+  width: 191px;
+  height: 191px;
+}
+.login_page-logo-2 {
+  top: 69px;
+left: 757px;
+width: 211px;
+height: 211px;
+}
+.login_page-logo-3 {
+  top: 349px;
+left: 856px;
+width: 185px;
+height: 185px;
+}
+.login_page-logo-4 {
+  /* Layout Properties */
+
+top: 611px;
+left: 835px;
+width: 158px;
+height: 158px;
+}
+.login_page-logo-5 {
+  top: 81px;
+  left: 431px;
+  width: 191px;
+  height: 191px;
+}
+.login_page-logo-6 {
+  top: 81px;
+  left: 431px;
+  width: 191px;
+  height: 191px;
+}
+.login_page-logo-7 {
+  top: 81px;
+  left: 431px;
+  width: 191px;
+  height: 191px;
+}
+.login_page-logo-8 {
+  top: 81px;
+  left: 431px;
+  width: 191px;
+  height: 191px;
+}
+.login_page-logo-9 {
+  top: 81px;
+  left: 431px;
+  width: 191px;
+  height: 191px;
+}
