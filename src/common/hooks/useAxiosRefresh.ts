@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { useAuth } from '../common/hooks'
-import { axiosUser } from './axios.config'
+import { useAuth } from './.'
+import { axiosUser } from './../../api/axios.config'
 
-const useAxiosWithTokens = () => {
+export const useAxiosWithTokens = () => {
   const { auth, setAuth } = useAuth()
 
   useEffect(() => {
@@ -56,3 +56,5 @@ const useAxiosWithTokens = () => {
     }
   }, [auth])
 }
+
+export default useAxiosWithTokens
