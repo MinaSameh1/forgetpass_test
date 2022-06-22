@@ -1,0 +1,18 @@
+.forgetpass-title {
+  font: normal normal bold 50px/69px Nunito;
+  padding-bottom: 30px;
+  text-decoration-color: #706fa7;
+}
+.forgetpass-underscore{
+  height: 0px;
+  width: 153px;
+  border: 2px solid #706FA7
+}
+
+.forgetpass-link{
+  color: #706fa7;
+  font-size: 30px;
+  float: right;
+  grid-area: right;
+  right: 0;
+}
