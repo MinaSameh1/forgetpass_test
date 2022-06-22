@@ -14,12 +14,12 @@ const LoginForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const { username, pass } = e.currentTarget
-    const res = await login(username.value, pass.value)
+    const res = await login(username.value.trim(), pass.value.trim())
     if (res) {
       // login
       console.log('Success in login')
 
-      if(setAuth) setAuth({
+      if (setAuth) setAuth({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
         user: {
