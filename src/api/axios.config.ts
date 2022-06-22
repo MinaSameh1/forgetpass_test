@@ -1,8 +1,13 @@
 import Axios from 'axios'
-import { URL } from './../common'
+import { onlineURL, URL } from './../common'
 
-const axiosInstance = Axios.create({
+const axiosPublic = Axios.create({
   baseURL: URL
 })
 
-export default axiosInstance
+export const axiosUser = Axios.create({
+  baseURL: onlineURL,
+  headers: { 'Content-Type': 'application/json' },
+})
+
+export default axiosPublic

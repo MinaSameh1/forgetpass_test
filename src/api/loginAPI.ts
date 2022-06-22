@@ -1,15 +1,14 @@
-import axios from 'axios'
-import { onlineURL } from "./../common";
 import { setToken, setTokenValue } from './../common'
 import { Iuserdata } from './../common/types'
+import { axiosUser } from "./axios.config";
 
 export async function login(
   username: string,
   pass: string
 ): Promise<null | Iuserdata> {
   try {
-    const res = await axios.post(
-      'https://loginapi-quick.herokuapp.com/api/login',
+    const res = await axiosUser.post(
+      'api/login',
       { username, password: pass }
     )
     const userdata = res.data
@@ -29,7 +28,9 @@ export async function login(
 }
 
 export async function updatePassAPI(pass: string) {
-  axios.post(onlineURL + '/api/user', {}, {
+  axiosUser.post('/api/user', {
+    password: pass
+  }, {
     headers: {
       authorization: ""
     }
