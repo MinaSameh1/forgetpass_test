@@ -2,8 +2,13 @@ import './forgetpass.css'
 
 export const ForgetPass: React.FC = () => {
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const { email } = e.currentTarget
+    // Logic
+  }
+
   return (<>
-    <form className='forgetpass-form'>
+    <form className='forgetpass-form' onSubmit={(e) => handleSubmit(e)}>
         <p className='forgetpass-title'>
           Forget Password?
         </p>
@@ -16,6 +21,7 @@ export const ForgetPass: React.FC = () => {
         </p>
         <p className='login-text'>Email</p>
         <input
+          name='email'
           className='login-input'
           placeholder='Your Email'
         />
