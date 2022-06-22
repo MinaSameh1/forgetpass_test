@@ -6,9 +6,11 @@
   top: 0;
   width: 100%;
   height: calc(0.6em + 20px);
-  background-color: #eef0fe;
+  /* background-color: #eef0fe; */
+  background: #eef0fe 0% 0% no-repeat padding-box;
   padding: 5px 0px;
-  box-shadow: 10px 2px 5px #555;
+  box-shadow: 0px 3px 6px #00000029;
+  /* box-shadow: 10px 2px 5px #555; */
 }
 
 .topbar_dash-logo {
@@ -19,3 +21,21 @@
   opacity: 1;
 }
 
+.topbar_dash-arrow {
+  color: #cdccd1;
+  padding: 0px 10px;
+}
+
+.topbar_dash-title {
+  padding: 0px 10px;
+  text-align: left;
+  font: normal normal medium 16px/50px Nunito;
+  letter-spacing: 0.01px;
+  color: #706fa7;
+  opacity: 1;
+}
+
+.topbar_dash-header {
+  padding: 0px 10px;
+  font: normal normal medium 16px/19px Nunito;
+}

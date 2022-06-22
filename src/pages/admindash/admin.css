@@ -1,10 +1,9 @@
 .dash-main {
-  padding-top: 3px;
+  margin-top: 5px;
   display: flex;
 }
 
 .dash-page {
-  flex: 8;
-  height: 100%;
-  background-color: #eff1fd;
+  flex: 4;
+  top: -20px;
 }

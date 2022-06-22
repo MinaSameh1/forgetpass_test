@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   MdAdminPanelSettings,
   MdDashboard,
@@ -8,7 +9,6 @@ import {
 } from 'react-icons/md'
 import { FaGraduationCap, FaRegNewspaper, FaDatabase } from 'react-icons/fa'
 import './sidebar.css'
-import { Link } from 'react-router-dom'
 
 export function Sidebar() {
   return (

@@ -18,6 +18,7 @@ export function AdminDashboard() {
       <TopBarDash />
       <div className='dash-main'>
         <Sidebar />
+        {/* TODO: Add React Router. */}
         <div className='dash-page'>
           <TableDash  />
         </div>
