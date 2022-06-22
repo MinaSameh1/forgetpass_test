@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { setToken, setTokenValue } from '../../common'
-import { Iuserdata } from './../../common/types'
+import { onlineURL } from "./../common";
+import { setToken, setTokenValue } from './../common'
+import { Iuserdata } from './../common/types'
 
 export async function login(
   username: string,
@@ -25,4 +26,12 @@ export async function login(
     console.log(err)
     return null
   }
+}
+
+export async function updatePassAPI(pass: string) {
+  axios.post(onlineURL + '/api/user', {}, {
+    headers: {
+      authorization: ""
+    }
+  })
 }

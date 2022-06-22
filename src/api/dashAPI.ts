@@ -1,5 +1,6 @@
-import axiosInstance from '../../common/axios.config'
-import { data } from './types'
+import axiosInstance from './axios.config'
+import { data } from './../components/TableDash/types'
+
 
 export async function getData(page: number = 1, sort: string = 'id') {
   const res = await axiosInstance.get(`/schools?_page=${page}&_sort=${sort}`)

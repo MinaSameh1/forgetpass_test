@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
-import { updatePassAPI } from './forgetpassAPI'
+import { updatePassAPI } from './../../api'
 import './forgotpass.css'
 
 const ForgotPass: React.FC = () => {

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
 import './login_form.css'
-import { login } from './loginAPI'
+import { login } from './../../api'
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate()
