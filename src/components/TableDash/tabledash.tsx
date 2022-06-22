@@ -1,28 +1,52 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getData } from './dashAPI'
 import { data } from './types'
+import { countBy } from 'lodash'
+import { MdAccessTime } from 'react-icons/md'
+import './tabledash.css'
+import { FaSchool } from 'react-icons/fa'
 
 export const TableDash = () => {
   const [data, setData] = useState<data[]>([])
+  const [total, setTotal] = useState(0)
 
   const getDataFromApi = async () => {
-    setData(await getData())
+    const { data, count } = await getData()
+    setData(data)
+    setTotal(count)
   }
 
+  useEffect(() => {
+    getDataFromApi()
+  }, [])
+
   return (
-    <>
-      <h1>Test</h1>
-        {data.map(item => (
+    <div className='table-main'>
+      <span className='table-title'>Schools</span>
+      <div className='table-widgets'>
+        <div className='table-widget'>
+          <MdAccessTime className='table-widget-icon' />
+          <span className='table-widget-number'>
+            {countBy(data, (item: data) => item.status == 0).true}
+          </span>
+          <span className='table-widget-text'>Pending Schools </span>
+        </div>
+        <div className='table-widget'>
+          <FaSchool className='table-widget-icon' />
+          <span className='table-widget-number'>{total}</span>
+          <span className='table-widget-text'>Total Schools</span>
+        </div>
+      </div>
+
+      {data.map((item) => (
         <div key={item.id}>
           <h5>Data</h5>
-          <pre>
-            {item.school}
-          </pre>
+          <pre>{item.school}</pre>
         </div>
-        ))}
+      ))}
       <br />
-      <button onClick={() => getDataFromApi()} >click</button>
-    </>
+      <button onClick={() => getDataFromApi()}>click</button>
+    </div>
   )
 }
 
