@@ -24,9 +24,5 @@ export async function login(
 export async function updatePassAPI(pass: string) {
   axiosOnline.post('/api/user', {
     password: pass
-  }, {
-    headers: {
-      authorization: ""
-    }
   })
 }

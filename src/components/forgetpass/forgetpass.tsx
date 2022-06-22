@@ -1,7 +1,27 @@
+import './forgetpass.css'
+
 export const ForgetPass: React.FC = () => {
 
   return (<>
-    <h1>Hhi</h1>
+    <form className='forgetpass-form'>
+        <p className='forgetpass-title'>
+          Forget Password?
+        </p>
+        <div className='forgetpass-underscore'></div>
+        <p className='forgetpass-info'>
+          Please enter your registered email address.<br />
+        <div className='forgetpass-gray'>
+          We will send a verification code to your registered email address.
+        </div>
+        </p>
+        <p className='login-text'>Email</p>
+        <input
+          className='login-input'
+          placeholder='Your Email'
+        />
+        <button className='forgetpass-button'>Next</button>
+    </form>
+
   </>)
 }
 

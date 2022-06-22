@@ -23,7 +23,7 @@ export const useAxiosWithTokens = () => {
       async (error) => {
         const prevReq = error?.config
 
-        if (error.response.status !== 401) {
+        if (error.response.status === 401) {
           const res = await axiosOnline.post(
             '/api/refresh',
             { token: auth?.refreshToken },
