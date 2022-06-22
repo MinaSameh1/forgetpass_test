@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { URL } from '.'
+import { URL } from './../common'
 
 const axiosInstance = Axios.create({
   baseURL: URL
