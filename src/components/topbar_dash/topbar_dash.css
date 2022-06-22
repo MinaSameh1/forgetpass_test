@@ -1,0 +1,21 @@
+.topbar-dash {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  top: 0;
+  width: 100%;
+  height: calc(0.6em + 20px);
+  background-color: #eef0fe;
+  padding: 5px 0px;
+  box-shadow: 10px 2px 5px #555;
+}
+
+.topbar_dash-logo {
+  padding: 5px;
+  margin-left: 10px;
+  width: 35px;
+  cursor: pointer;
+  opacity: 1;
+}
+

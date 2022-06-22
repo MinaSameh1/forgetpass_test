@@ -13,7 +13,7 @@ function App() {
         <Route path='/' element={<LoginPage />} />
         <Route path='/forgotpass' element={<ForgotPass />} />
         <Route
-          path='/admindash'
+          path='/setup'
           element={
             <RequireLogin>
               <AdminDashboard />
