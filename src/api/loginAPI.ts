@@ -1,4 +1,3 @@
-import { setToken, setTokenValue } from './../common'
 import { Iuserdata, tokens } from './../common/types'
 import { axiosUser } from "./axios.config";
 
