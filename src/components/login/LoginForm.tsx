@@ -3,10 +3,12 @@ import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate } from 'react-router-dom'
 import './login_form.css'
 import { login } from './../../api'
+import { useAuth } from '../../common/hooks'
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate()
   const [show, setShow] = useState<boolean>(false)
+  const { setAuth } = useAuth()
   const [error, setError] = useState<boolean>(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,7 +18,18 @@ const LoginForm: React.FC = () => {
     if (res) {
       // login
       console.log('Success in login')
-      navigate('/setup', { replace: true, state: { userdata: res } })
+
+      if(setAuth) setAuth({
+        accessToken: res.accessToken,
+        refreshToken: res.refreshToken,
+        user: {
+          username: res.username,
+          role: res.role,
+          isAdmin: res.isAdmin,
+          img: res.img ? res.img : null
+        }
+      })
+      navigate('/setup', { replace: true })
       return
     }
     setError(true)

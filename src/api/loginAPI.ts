@@ -1,11 +1,11 @@
 import { setToken, setTokenValue } from './../common'
-import { Iuserdata } from './../common/types'
+import { Iuserdata, tokens } from './../common/types'
 import { axiosUser } from "./axios.config";
 
 export async function login(
   username: string,
   pass: string
-): Promise<null | Iuserdata> {
+): Promise<null | Iuserdata & tokens> {
   try {
     const res = await axiosUser.post(
       'api/login',
@@ -13,11 +13,6 @@ export async function login(
     )
     const userdata = res.data
     if (userdata) {
-      // Maybe use react-cookies ? for now use the document api.
-      if (userdata.accessToken)
-        // since this api doesn't return an actual token
-      setToken(userdata.accessToken, userdata.refreshToken)
-      else setTokenValue('noToken')
       return userdata
     }
     return null

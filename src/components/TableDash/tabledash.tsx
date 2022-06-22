@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { getData } from './dashAPI'
 import { data } from './types'
 import { countBy } from 'lodash'
 import { MdAccessTime } from 'react-icons/md'
 import './tabledash.css'
 import { FaSchool } from 'react-icons/fa'
+import { getData } from '../../api'
 
 export const TableDash = () => {
   const [data, setData] = useState<data[]>([])

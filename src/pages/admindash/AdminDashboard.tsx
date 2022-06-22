@@ -1,27 +1,41 @@
-import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../common/hooks'
 import { Sidebar } from '../../components/sidebar'
 import { TopBarDash } from '../../components/topbar_dash'
-import { Iuserdata } from './../../common/types'
 import { TableDash } from './../../components/TableDash'
 import { TopBar } from './../../components/topbar'
 import img from './../../images/Ellipse_1@2x.png'
 import './admin.css'
 
-type locationProps = { userdata: Iuserdata }
-
 export function AdminDashboard() {
-  const location = useLocation()
-  const { userdata } = location.state as locationProps
+  const navigate = useNavigate()
+  const { auth } = useAuth()
+  let userdata
+
+  if (auth?.user) {
+    userdata = auth?.user
+  } else {
+    setTimeout( // Wait a tiny bit for it to render first
+      () => {
+        navigate('/login', { replace: true })
+      }, 100
+    )
+    return
+  }
 
   return (
     <>
-      <TopBar img={userdata.img || img} name={userdata.username} role={userdata.role} />
+      <TopBar
+        img={userdata.img || img}
+        name={userdata.username}
+        role={userdata.role}
+      />
       <TopBarDash />
       <div className='dash-main'>
         <Sidebar />
-        {/* TODO: Add React Router. */}
+        {/* TODO: Move to outlet. */}
         <div className='dash-page'>
-          <TableDash  />
+          <TableDash />
         </div>
       </div>
     </>
