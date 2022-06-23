@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
-import { Link, useNavigate } from 'react-router-dom'
-import { updatePassAPI } from './../../api'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { axiosOnline, updatePassAPI } from './../../api'
 import './resetpass.css'
+
+interface show {
+  showPass: boolean
+  showConfPass: boolean
+}
 
 export const ResetPass: React.FC = () => {
   const navigate = useNavigate()
-  const [showPass, setShowPass] = useState<boolean>(false)
-  const [showConfPass, setShowConfPass] = useState<boolean>(false)
+  const params = useParams()
+  const [showPass, setShowPass] = useState<show>({
+    showPass: false,
+    showConfPass: false,
+  })
   const [error, setError] = useState<boolean>(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,6 +29,24 @@ export const ResetPass: React.FC = () => {
     }
   }
 
+  useEffect(() => {
+      const verifyToken = async () => {
+      const token = params.token
+      // Check that the token is correct
+      const res = await axiosOnline.get(`/api/user/${token}`)
+      console.log(res) // TODO: Remove debug msg
+      if (res.status === 200) {
+        setError(false)
+      }
+      else {
+        // If not navigate back
+        navigate('/404', { replace: true })
+      }
+    }
+
+    verifyToken()
+  }, [params])
+
   return (
     <>
       <form className='login-form' onSubmit={(event) => handleSubmit(event)}>
@@ -32,21 +58,31 @@ export const ResetPass: React.FC = () => {
           <input
             className='login-input'
             name='pass'
-            type={showPass ? 'text' : 'password'}
+            type={showPass.showPass ? 'text' : 'password'}
             placeholder='Your New password'
             required
           />
-          {showPass ? (
+          {showPass.showPass ? (
             <BiShow
               className='login-show'
               title='Show Password'
-              onClick={() => setShowPass(!showPass)}
+              onClick={() =>
+                setShowPass({
+                  showPass: !showPass.showPass,
+                  showConfPass: showPass.showConfPass,
+                })
+              }
             />
           ) : (
             <BiHide
               className='login-show'
               title='Hide password'
-              onClick={() => setShowPass(!showPass)}
+              onClick={() =>
+                setShowPass({
+                  showPass: !showPass.showPass,
+                  showConfPass: showPass.showConfPass,
+                })
+              }
             />
           )}
         </div>
@@ -57,20 +93,26 @@ export const ResetPass: React.FC = () => {
             className='login-input'
             placeholder='Confirm Your password'
             name='confPass'
-            type={showConfPass ? 'text' : 'password'}
+            type={showPass.showConfPass ? 'text' : 'password'}
             required
           />
-          {showConfPass ? (
+          {showPass.showConfPass ? (
             <BiShow
               className='login-show'
               title='Show Password'
-              onClick={() => setShowConfPass(!showConfPass)}
+              onClick={() => setShowPass({
+                showPass: showPass.showPass,
+                showConfPass: !showPass.showConfPass
+              })}
             />
           ) : (
             <BiHide
               className='login-show'
               title='Hide password'
-              onClick={() => setShowConfPass(!showConfPass)}
+              onClick={() => setShowPass({
+                showPass: showPass.showPass,
+                showConfPass: !showPass.showConfPass
+              })}
             />
           )}
           <br />
