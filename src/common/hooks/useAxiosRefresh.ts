@@ -19,35 +19,17 @@ export const useAxiosWithTokens = () => {
     )
 
     const resIntercept = axiosOnline.interceptors.response.use(
-      (response) => response,
-      async (error) => {
-        const prevReq = error?.config
-
-        if (error.response.status === 401) {
-          const res = await axiosOnline.post(
-            '/api/refresh',
-            { token: auth?.refreshToken },
-            {
-              withCredentials: true,
-            }
-          )
-
-          if (setAuth) {
-            setAuth((prev) => {
-              console.log(`Refreshed Token with ${res.status}`)
-              return {
-                ...prev,
-                accessToken: res.data.accessToken,
-                refreshToken: res.data.refreshToken,
-              }
-            })
-          }
-          prevReq.headers['Authorization'] = `Bearer ${res.data.accessToken}`
-          return axiosOnline(prevReq)
+      (response) => {
+        // Auto Refresh Token from backend
+        if (response.headers['x-access-token']) {
+          console.log('Recieved New Token')
+          if (setAuth) setAuth({
+            ...auth,
+            accessToken: response.headers['x-access-token']
+          })
         }
-
-        Promise.reject(error)
-      }
+      },
+      async (error) => Promise.reject(error)
     )
 
     return () => {
