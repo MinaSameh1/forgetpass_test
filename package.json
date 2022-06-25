@@ -15,7 +15,8 @@
     "react-click-away-listener": "^2.2.1",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0",
-    "react-router-dom": "6"
+    "react-router-dom": "6",
+    "react-toastify": "^9.0.5"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.3.0",

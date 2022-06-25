@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { axiosOnline, updatePassAPI } from './../../api'
+import { axiosOnline, checkTokenAPI, updatePassAPI } from './../../api'
 import './resetpass.css'
 
 interface show {
@@ -11,7 +11,7 @@ interface show {
 
 export const ResetPass: React.FC = () => {
   const navigate = useNavigate()
-  const params = useParams()
+  const { token } = useParams()
   const [showPass, setShowPass] = useState<show>({
     showPass: false,
     showConfPass: false,
@@ -21,22 +21,31 @@ export const ResetPass: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const { pass, confPass } = e.currentTarget
-    if (pass != confPass) {
+    if (pass.value !== confPass.value) {
       setError(true)
     } else {
-      updatePassAPI(pass)
+      if (token)
+        updatePassAPI(pass.value, token)
       navigate('/login', { replace: true })
     }
   }
 
   useEffect(() => {
-      const verifyToken = async () => {
-      const token = params.token
+    const verifyToken = async () => {
       // Check that the token is correct
-      const res = await axiosOnline.get(`/api/user/${token}`)
-      console.log(res) // TODO: Remove debug msg
-      if (res.status === 200) {
-        setError(false)
+      if (token) {
+        try {
+          const res = await checkTokenAPI(token)
+          console.log(res) // TODO: Remove debug msg
+          if (res.status === 200) {
+            setError(false)
+            return
+          }
+          navigate('/404', { replace: true })
+        } catch (e: unknown) {
+          console.log(e)
+          navigate('/404', { replace: true })
+        }
       }
       else {
         // If not navigate back
@@ -45,7 +54,7 @@ export const ResetPass: React.FC = () => {
     }
 
     verifyToken()
-  }, [params])
+  }, [])
 
   return (
     <>

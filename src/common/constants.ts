@@ -1,2 +1,2 @@
 export const URL = 'http://localhost:8000'
-export const onlineURL = 'https://loginapi-quick.herokuapp.com'
+export const onlineURL = 'http://localhost:8080'

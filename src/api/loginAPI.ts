@@ -7,7 +7,7 @@ export async function login(
 ): Promise<null | Iuserdata & tokens> {
   try {
     const res = await axiosOnline.post(
-      'api/login',
+      'api/user/login',
       { username, password: pass }
     )
     const userdata = res.data
@@ -21,8 +21,20 @@ export async function login(
   }
 }
 
-export async function updatePassAPI(pass: string) {
-  axiosOnline.post('/api/user', {
+export function requestResetPassAPI(email: string) {
+  return axiosOnline.post('/api/user/request', {
+    email: email
+  })
+}
+
+export function checkTokenAPI(token: string) {
+  return axiosOnline.post(`/api/user/${token}`, {
+    token
+  })
+}
+
+export function updatePassAPI(pass: string, token: string) {
+  return axiosOnline.patch(`/api/user/${token}`, {
     password: pass
   })
 }
