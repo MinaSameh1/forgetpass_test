@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import 'react-toastify/dist/ReactToastify.min.css';
 import { AdminDashboard } from './pages/admindash'
 import { ResetPass } from './components/Resetpass'
 import { Logout } from './components/logout/logout'

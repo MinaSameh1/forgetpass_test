@@ -10,11 +10,19 @@ export const ForgetPass: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const { email } = e.currentTarget
-    const res = await requestResetPassAPI(email.value)
-    if (res.status === 200) {
-      toast('Sent email')
+    try {
+      const res = await requestResetPassAPI(email.value)
+      if (res.status === 200) {
+        toast.success('Sent email')
+        setTimeout(() => {
+          navigate('/login', { replace: true })
+        }, 5000)
+      }
+      return toast.error(`Didn't send mail! ${res.data.message}`)
+    } catch (e: unknown) {
+      console.log(e)
+      return toast.error(`Didn't send mail`)
     }
-    toast(`Didn't send mail\n${res.data.message}`)
   }
 
   return (<>
@@ -22,7 +30,6 @@ export const ForgetPass: React.FC = () => {
       <ToastContainer
         position="top-right"
         autoClose={5000}
-        hideProgressBar={false}
       />
       <form className='forgetpass-form' onSubmit={(e) => handleSubmit(e)}>
         <p className='forgetpass-title'>

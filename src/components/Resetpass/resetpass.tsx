@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BiHide, BiShow } from 'react-icons/bi'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { axiosOnline, checkTokenAPI, updatePassAPI } from './../../api'
 import './resetpass.css'
 
@@ -24,9 +25,19 @@ export const ResetPass: React.FC = () => {
     if (pass.value !== confPass.value) {
       setError(true)
     } else {
-      if (token)
-        updatePassAPI(pass.value, token)
-      navigate('/login', { replace: true })
+      if (token) {
+        try {
+        const res = await updatePassAPI(pass.value, token)
+        if(res.status === 200) {
+          toast.success('Updated Password!')
+          return navigate('/login', { replace: true })
+        }
+        return toast.error('something went wrong')
+        } catch(e: unknown) {
+          console.log(e)
+          return toast.error('Something went wrong, please try again later')
+        }
+      }
     }
   }
 
