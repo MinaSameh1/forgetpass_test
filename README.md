@@ -10,7 +10,7 @@ I used React and vite to create it.
 npm i 
 npm run dev 
 
-# For production build
+# Or for production build
 npm i 
 npm run build
 npm run start
