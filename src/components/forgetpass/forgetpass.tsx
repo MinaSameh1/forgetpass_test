@@ -2,7 +2,6 @@ import { toast, ToastContainer } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { requestResetPassAPI } from '../../api'
 import './forgetpass.css'
-import { ResetPass } from '../Resetpass'
 
 export const ForgetPass: React.FC = () => {
   const navigate = useNavigate()
