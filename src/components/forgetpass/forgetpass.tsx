@@ -11,17 +11,23 @@ export const ForgetPass: React.FC = () => {
     e.preventDefault()
     const { email } = e.currentTarget
     try {
-      const res = await requestResetPassAPI(email.value)
-      if (res.status === 200) {
-        toast.success('Sent email')
-        setTimeout(() => {
-          navigate('/login', { replace: true })
-        }, 5000)
-      }
-      return toast.error(`Didn't send mail! ${res.data.message}`)
+      requestResetPassAPI(email.value).then(
+        res => {
+          if (res.status === 200) {
+            toast.success('Sent email')
+            setTimeout(() => {
+              navigate('/login', { replace: true })
+            }, 5000)
+            return
+          }
+        }
+      ).catch(e => {
+        console.log(e)
+        return toast.error(`Didn't send mail!\n ${e.response.data.message}`)
+      })
     } catch (e: unknown) {
       console.log(e)
-      return toast.error(`Didn't send mail`)
+      return toast.error(`Didn't send mail!`)
     }
   }
 
