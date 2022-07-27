@@ -1,5 +1,5 @@
-# task_login_dash
-This is a task that was requested from me to create a login page, a forgot password page and Dashboard
+# forgetpass_test
+This is a project that has a login page, forgetpass and reset password.
 
 I used React and vite to create it.
 
